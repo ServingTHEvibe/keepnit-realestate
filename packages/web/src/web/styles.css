@@ -1,0 +1,124 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&family=DM+Sans:wght@300;400;500;600;700&display=swap');
+@import "tailwindcss";
+
+:root {
+  --primary: #1a1a2e;
+  --accent: #c9a96e;
+  --surface: #f8f5f0;
+  --border: #e5e0d8;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: #f8f5f0;
+}
+
+@layer base {
+  .font-display {
+    font-family: 'Playfair Display', serif;
+  }
+  .font-sans {
+    font-family: 'DM Sans', sans-serif;
+  }
+}
+
+/* Nav glass effect */
+.nav-glass {
+  background: transparent;
+  backdrop-filter: none;
+}
+
+.nav-scrolled {
+  background: rgba(26, 26, 46, 0.92) !important;
+  backdrop-filter: blur(20px) !important;
+  border-bottom: 1px solid rgba(201, 169, 110, 0.15);
+  box-shadow: 0 4px 32px rgba(0, 0, 0, 0.3);
+}
+
+/* Smooth scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #f8f5f0;
+}
+::-webkit-scrollbar-thumb {
+  background: #c9a96e;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #b8924f;
+}
+
+/* Selection color */
+::selection {
+  background: rgba(201, 169, 110, 0.3);
+  color: #1a1a2e;
+}
+
+/* Fade-up base state (before GSAP fires) */
+.fade-up {
+  opacity: 0;
+  transform: translateY(50px);
+}
+
+/* Feature card hover transition */
+.feature-card {
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Listing card */
+.listing-card {
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Video parallax containment */
+section {
+  overflow: hidden;
+}
+
+/* Ken Burns slow zoom */
+@keyframes ken-burns {
+  0%   { transform: scale(1.0) translateY(0px); }
+  100% { transform: scale(1.18) translateY(-20px); }
+}
+
+.ken-burns {
+  animation: ken-burns 12s ease-in-out infinite alternate;
+  transform-origin: center center;
+}
+
+/* Gold gradient text */
+.text-gold-gradient {
+  background: linear-gradient(135deg, #c9a96e 0%, #e8c88a 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Smooth image loading */
+img {
+  transition: opacity 0.3s ease;
+}
+
+/* Button pulse animation */
+@keyframes gold-pulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(201, 169, 110, 0.4); }
+  50% { box-shadow: 0 0 0 12px rgba(201, 169, 110, 0); }
+}
+
+.btn-pulse {
+  animation: gold-pulse 2s infinite;
+}
