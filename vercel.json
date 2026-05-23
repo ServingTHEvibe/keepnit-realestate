@@ -1,7 +1,7 @@
 {
   "buildCommand": "bash build.sh",
   "outputDirectory": "packages/web/dist",
-  "installCommand": "npm install",
+  "installCommand": "echo skip",
   "framework": null,
   "rewrites": [
     { "source": "/(.*)", "destination": "/index.html" }

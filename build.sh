@@ -1,5 +1,5 @@
 #!/bin/bash
 set -e
 cd packages/web
-npm install
+npm install --legacy-peer-deps
 npx vite build
